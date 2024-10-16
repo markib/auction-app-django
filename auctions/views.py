@@ -76,7 +76,6 @@ class SignUp(View):
             # to_email = [user.email]
 
             # send_mail(subject, message, from_email, to_email, fail_silently=False)
-
             # Success message to the user
                 messages.success(
                     request, "Please confirm your email to complete registration."
