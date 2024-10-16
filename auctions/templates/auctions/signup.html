@@ -1,0 +1,57 @@
+
+{% extends 'auctions/login_signup_base.html' %}
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Signup</title>
+</head>
+<body class="erp">
+<img src="{% static '/images/landing.png' %}">
+{% block signup %}
+
+
+<form method="post">
+    {% csrf_token %}
+    <div class=wel>
+          SIGNUP
+      </div> <br>
+      <div class="connected">
+          To keep connected, Please Sign Up with you personal information<br> by Username & password  <i class="fa fa-bell bells"></i>
+      </div>
+    {% for field in form %}
+    <div class="input-group em" style="margin-top: 2%;">
+        <span class="input-group-addon">
+            {% if field.name == "username" %}
+            <i class="glyphicon glyphicon-user"></i>
+            {% elif field.name == "email" %}
+            <i class="glyphicon glyphicon-envelope"></i>
+            {% elif field.name == "password1" %}
+            <i class="glyphicon glyphicon-lock"></i>
+            {% elif field.name == "password2" %}
+            <i class="glyphicon glyphicon-ok"></i>
+            {% endif %}
+        </span>
+        {{ field }}
+        {% if field.errors %}
+        <ul style="color: red; list-style-type: none; padding: 0;">
+            {% for error in field.errors %}
+            <li>{{ error }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </div>
+    {% endfor %}
+    
+    <br>
+    <button type="submit" style="margin-left:150px;background-color:white; font-size:16px; padding:10px; border-radius:20px; cursor:pointer;">SIGN UP</button>
+    <a href="{% url 'login' %}" style="background-color:white; font-size:16px; padding:10px; border-radius:20px; cursor:pointer; color:black; text-decoration:none; ">LOGIN</a>
+
+</form>
+
+{% endblock %}
+</body>
+</html>

@@ -1,0 +1,42 @@
+
+{% extends 'auctions/base1.html' %}
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>profile</title>
+</head>
+<body>
+{% block edit_profile %}
+<form method="post" enctype="multipart/form-data" class="tk box-shadow--6dp ">
+
+    <h1 class="display-1" style="text-align:center;">EDIT PROFILE</h1>
+
+
+    {% csrf_token %}
+
+    <h2 class="prof">UserName : {{user.username }}</h2>
+    <h2 class="prof">Email:  {{ user.email }}</h2>
+
+
+
+    {% for field in form %}
+    <p>
+        {{ field.label_tag }}<br>
+        {{ field }}
+        {% for error in field.errors %}
+    <p style="color: red;">{{ error }}</p>
+    {% endfor %}
+    </p>
+
+    {% endfor %}<br>
+    <button type="submit" style="margin-left:50%;">Save</button>
+
+</form>
+
+{% endblock %}
+</body>
+</html>

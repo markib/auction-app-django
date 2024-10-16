@@ -1,0 +1,23 @@
+services:
+  web:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/app
+    ports:
+      - "8001:8000"
+    depends_on:
+      - db
+    environment:
+      - DATABASE_URL=postgres://auction_user:auction_password@db:5432/auction_db
+  db:
+    image: postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=auction_db
+      - POSTGRES_USER=auction_user
+      - POSTGRES_PASSWORD=auction_password
+
+volumes:
+  postgres_data:

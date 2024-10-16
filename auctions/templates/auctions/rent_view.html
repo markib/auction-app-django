@@ -1,0 +1,27 @@
+{% extends 'auctions/base1.html' %}
+{% load static %}
+
+
+
+{% block rent_list %}
+
+
+{% if rent_product_list %}
+
+    {% for product in rent_product_list %}
+      <ul class="product-list">
+          <li>
+          <h1><a href="{% url 'rent_product' product.id %}" style="text-decoration:none;">{{ product.name }}</a></h1>
+          <h2>Category:-{{ product.categoty }}</h2>
+          </li>
+    <br>
+    </ul>
+
+    {% endfor %}
+
+{% else %}
+<br>
+    <p style="color:white; font-size:30px; margin-left:30%;">NO PRODUCT IS AVAILABLE FOR RENT</p>
+{% endif %}
+
+{% endblock %}

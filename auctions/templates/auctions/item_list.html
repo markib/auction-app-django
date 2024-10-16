@@ -1,0 +1,28 @@
+<!-- auctions/templates/auctions/item_list.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auction Items</title>
+</head>
+
+<body>
+    <h1>Auction Items</h1>
+
+    {% if items %}
+    <ul>
+        {% for item in items %}
+        <li>
+            <a href="{% url 'item_detail' item.id %}">{{ item.name }}</a> - Current Bid: ${{ item.current_bid }}
+        </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>No auction items available.</p>
+    {% endif %}
+</body>
+
+</html>

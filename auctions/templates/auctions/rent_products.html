@@ -1,0 +1,55 @@
+{% extends 'auctions/base1.html' %}
+{% load static %}
+
+
+
+{% block products_rented%}
+<div class="container tab box-shadow--6dp">
+    <h2 style="text-align:center;">Rent Section</h2>
+    <table class="table table-bordered" style="font-size:20px;">
+      <tbody>
+        <tr>
+           <td><b>Name:</b></td>
+          <td>{{name}}</td>
+
+        </tr>
+        <tr>
+          <td><b>Description:</b></td>
+          <td>{{desp}}</td>
+
+        </tr>
+        <tr>
+          <td><b>Category:</b></td>
+          <td>{{category}}</td>
+
+        </tr>
+        <tr>
+            <td><b>Rent:</b></td>
+            <td>{{rent}}</td>
+
+          </tr>
+        <tr>
+            <td><b>Owned By:</b></td>
+            <td>{{owner}}</td>
+
+        </tr>
+        <tr>
+            <td><b>Rent Product:</b></td>
+            <td>
+                   <form method="post" style="margin-top:-2vw;  color:black;  position:absolute;">
+
+                         {% csrf_token %}
+                          <br>
+                          <button class="issue" type="submit" value="return_product" name="return" style="cursor: pointer;  padding:4px;  border-radius:30px;"> RENT PRODUCT </button>
+                          <br>
+
+                   </form>
+            </td>
+
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+{% endblock %}

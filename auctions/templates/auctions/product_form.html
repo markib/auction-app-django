@@ -1,0 +1,76 @@
+
+{% extends 'auctions/base1.html' %}
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body style="background-image: url('back.jpg');background-size: cover;">
+
+
+{% block product_form %}
+
+
+
+        <form method="POST" class="tm box-shadow--6dp" enctype="multipart/form-data">
+        {% csrf_token %}
+         <h1 class="display-1">ADD PRODUCT</h1>
+        <div class="form-group">
+        <label  class="lbsz">Name:</label>
+        <input type="text" class="form-control sz" name="name" maxlength="50" required="" id="id_name" placeholder="Name">
+        </div>
+        <div class="form-group">
+        <label  class="lbsz">Description:</label>
+        <textarea name="desp" cols="30" class="form-control sz" rows="5" maxlength="100" required="" id="id_desp" placeholder="Description"></textarea>
+        </div>
+            <div class="form-group">
+        <label class="lbsz">Category:</label>
+        <select name="category" id="id_category" class="form-control sz">
+  <option value="" selected>---------</option>
+
+  <option value="Grocery">Grocery</option>
+
+  <option value="Mobiles">Mobiles</option>
+
+  <option value="Clothes">Clothes</option>
+
+  <option value="Electronics">Electronics</option>
+
+  <option value="Home Appliances">Home Appliances</option>
+
+  <option value="Beauty">Beauty</option>
+
+  <option value="Toys">Toys</option>
+
+  <option value="Sports">Sports</option>
+
+  <option value="Footwear">Footwear</option>
+
+  <option value="Others">Others</option>
+
+</select>
+            </div>
+  <div class="form-group">
+  <label for="id_minimum_price" class="lbsz">Minimum price:</label>
+<input type="number" name="minimum_price" value="1" id="id_minimum_price" class="form-control sz">
+  </div>
+ <div class="form-group">
+<label for="rent_price" class="lbsz">Rent price</label>
+            <input type="number" name="rent_price" id="rent_price" class="form-control sz">
+ </div>
+
+ <div class="form-group row ">
+            <div class="col-sm-10">
+<button type="submit" class="btn btn-primary" style="font-size:80%;">Save</button>
+ </div>
+          </div>
+
+</form>
+{% endblock %}
+
+</body>
+</html>

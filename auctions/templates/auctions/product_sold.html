@@ -1,0 +1,59 @@
+{% extends 'auctions/base.html' %}
+{% load static %}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>BIDDING AREA</title>
+</head>
+<body>
+{% block product_sold %}
+ <div class="container tab box-shadow--6dp">
+    <h2 style="text-align:center;">Product Description Table</h2>
+    <table class="table table-bordered" style="font-size:20px;">
+      <tbody>
+        <tr>
+           <td><b>Name:</b></td>
+          <td>{{name}}</td>
+
+        </tr>
+        <tr>
+          <td><b>Description:</b></td>
+          <td>{{desp}}</td>
+
+        </tr>
+        <tr>
+          <td><b>Category:</b></td>
+          <td>{{category}}</td>
+
+        </tr>
+        <tr>
+            <td><b>Bid Start:</b></td>
+            <td>{{start}}</td>
+
+          </tr>
+        <tr>
+            <td><b>Bid End:</b></td>
+            <td>{{end}}</td>
+
+          </tr>
+        <tr>
+            <td><b>Highest Bid:</b></td>
+            <td>{{currentbid}}</td>
+
+          </tr>
+
+          <tr>
+            <td><b>Item Sold To:</b></td>
+            <td>{{buyer}}</td>
+
+          </tr>
+      </tbody>
+    </table>
+  </div>
+
+{% endblock %}
+</body>
+</html>
